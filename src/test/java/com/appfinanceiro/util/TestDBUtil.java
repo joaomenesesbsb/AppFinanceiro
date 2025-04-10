@@ -1,18 +1,25 @@
 package com.appfinanceiro.util;
 
+import org.junit.jupiter.api.*;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class TestDBUtil {
-    public static void main(String[] args) {
+import static org.junit.jupiter.api.Assertions.*;
+
+class TestDBUtil {
+
+    @Test
+    void testConnectionAndQuery() {
         try (Connection conn = DBUtil.getConnection()) {
-            System.out.println(" Conexão com o banco realizada com sucesso!");
+            assertNotNull(conn, "Connection should not be null");
+            System.out.println("Connection to database successful.");
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM transactions");
 
-            System.out.println(" Tabela 'transactions' encontrada. Linhas:");
+            System.out.println("Table 'transactions' found. Rows:");
 
             while (rs.next()) {
                 System.out.println("- ID: " + rs.getLong("id") +
@@ -23,9 +30,7 @@ public class TestDBUtil {
             }
 
         } catch (Exception e) {
-            System.out.println("❌ Erro ao conectar ou consultar o banco:");
-            e.printStackTrace();
+            fail("Failed to connect or query the database: " + e.getMessage());
         }
     }
-
 }
