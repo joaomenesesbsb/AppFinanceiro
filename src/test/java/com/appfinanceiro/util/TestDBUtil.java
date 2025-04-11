@@ -14,7 +14,7 @@ class TestDBUtil {
     void testConnectionAndQuery() {
         try (Connection conn = DBUtil.getConnection()) {
             assertNotNull(conn, "Connection should not be null");
-            System.out.println("Connection to database successful.");
+            System.out.println("## Connection to database successful. ##");
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM transactions");
@@ -22,11 +22,11 @@ class TestDBUtil {
             System.out.println("Table 'transactions' found. Rows:");
 
             while (rs.next()) {
-                System.out.println("- ID: " + rs.getLong("id") +
-                                   ", Description: " + rs.getString("description") +
-                                   ", Amount: " + rs.getDouble("amount") +
-                                   ", Type: " + rs.getString("type") +
-                                   ", Date: " + rs.getDate("date"));
+                System.out.println("## - ID: " + rs.getLong("id" ) +
+                                   "## , Description: " + rs.getString("description") +
+                                   "## , Amount: " + rs.getDouble("amount") +
+                                   "## , Type: " + rs.getString("type") +
+                                   "## , Date: " + rs.getDate("date"));
             }
 
         } catch (Exception e) {
