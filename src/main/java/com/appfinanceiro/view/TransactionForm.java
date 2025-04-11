@@ -5,6 +5,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import lombok.Getter;
+
 
 public class TransactionForm {
     private TextField descriptionField;
@@ -38,4 +40,5 @@ public class TransactionForm {
     public ComboBox<String> getTypeCombo() { return typeCombo; }
     public DatePicker getDatePicker() { return datePicker; }
     public Button getAddButton() { return addButton; }
+
 }

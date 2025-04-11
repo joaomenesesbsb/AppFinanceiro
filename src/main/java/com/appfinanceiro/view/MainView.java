@@ -1,7 +1,5 @@
 package com.appfinanceiro.view;
 
-import java.time.LocalDate;
-
 import com.appfinanceiro.controller.TransactionController;
 import com.appfinanceiro.model.Transaction;
 import com.appfinanceiro.repository.TransactionRepository;
@@ -21,21 +19,20 @@ public class MainView extends Application {
 
     private TableView<Transaction> table;
     private ObservableList<Transaction> transactionList;
-    
-    TransactionRepository repository = new TransactionRepository();
-    TransactionService service = new TransactionService(repository);
+    private final TransactionRepository repository = new TransactionRepository();
+    private final TransactionService service = new TransactionService(repository);
+    private final TransactionController controller = new TransactionController(service);
 
     @Override
-    public void start(Stage primaryStage) {primaryStage.setTitle("Genrenciador de Finascas");
-
-   
+    public void start(Stage primaryStage) {
+        
+    primaryStage.setTitle("Genrenciador de Finascas");
 
     table = new TableView<>();
     configureTable();
 
     transactionList = FXCollections.observableArrayList();
     table.setItems(transactionList);
-
     transactionList.addAll(service.getAllTransactions());
 
     TransactionForm form = new TransactionForm();

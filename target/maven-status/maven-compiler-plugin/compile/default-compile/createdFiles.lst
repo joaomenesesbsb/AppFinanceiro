@@ -1,5 +1,8 @@
 com\appfinanceiro\Main.class
+com\appfinanceiro\controller\TransactionController.class
 com\appfinanceiro\repository\TransactionRepository.class
 com\appfinanceiro\util\DBUtil.class
+com\appfinanceiro\view\MainView.class
+com\appfinanceiro\service\TransactionService.class
 com\appfinanceiro\model\Transaction.class
-com\appfinanceiro\controller\MainController.class
+com\appfinanceiro\view\TransactionForm.class

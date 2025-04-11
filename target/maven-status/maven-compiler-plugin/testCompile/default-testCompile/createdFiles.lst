@@ -1,0 +1,3 @@
+com\appfinanceiro\util\TestDBUtil.class
+com\appfinanceiro\repository\TransactionRepositoryTest.class
+com\appfinanceiro\service\TransactionServiceTest.class

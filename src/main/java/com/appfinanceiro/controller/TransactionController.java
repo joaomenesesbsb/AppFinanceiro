@@ -36,8 +36,6 @@ public class TransactionController {
                                 "/  date   " + 
                                 transaction.getDate());
 
-                                list.add(transaction);
-
             // Limpar campos depois
             form.getDescriptionField().clear();
             form.getAmountField().clear();
